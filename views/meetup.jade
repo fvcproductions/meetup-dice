@@ -1,37 +1,45 @@
 extends layout
 
 block content
+
   #eventdesc
-    h1= event.name
-    p #{event.yes_rsvp_count} RSVPs
+    h1#header= event.name
+    br
+    h2#header
+      b #{event.yes_rsvp_count} signed up
 
-  #winner
-    h1 Winner is ...?
-    .winner__wrapper
-      img.member(src='/images/default.jpg')
+  .row#margin-top-bottom
+    .col-md-6
+      #links
+        br
+        .links__control#header
+          .control.control__pp
+            .btn-toolbar
+              .btn-group(role="group")
+                button.btn.btn-danger.btn-lg(type='button')
+                  i.fa.fa-pied-piper-alt.fa-5x
+          br
+          .control.control__speed
+            .btn-group
+              button.btn.btn-danger-outline(type='button') 1
+              button.btn.btn-danger-outline(type='button') 2
+              button.btn.btn-danger-outline(type='button') 3
+              button.btn.btn-danger-outline(type='button') 4
+              button.btn.btn-danger-outline(type='button') 5
 
-  #links
-    .links__control
-      .control.control__pp
-        .btn-group
-          button.btn.btn-default(type='button')
-            span.glyphicon.glyphicon-play
-            span.glyphicon.glyphicon-pause
-      .control.control__speed
-        label(style='margin-right: 1em;') Speed:
-        .btn-group
-          button.btn.btn-default(type='button') 1
-          button.btn.btn-default(type='button') 2
-          button.btn.btn-default(type='button') 3
-          button.btn.btn-default(type='button') 4
-          button.btn.btn-default(type='button') 5
+      p
+      #list
+        each val in rsvplist
+          .member-cell
+            if val.member_photo
+              img.list(src='#{val.member_photo.photo_link}', class="img-fluid img-thumbnail", title='#{val.member.name}')
+            else
+              img.list(src='/images/default.png', class="img-fluid img-thumbnail", title='#{val.member.name}')
+    .col-md-6
+      #winner
+        h1#header Winner is ...?
+        br
+        .winner__wrapper#header
+          img.member.img-circle.img-thumbnail.img-fluid(src='/images/default.png')
+        br
 
-  p
-  
-  #list
-    each val in rsvplist
-      .member-cell
-        if val.member_photo
-          img.list(src='#{val.member_photo.photo_link}', title='#{val.member.name}')
-        else
-          img.list(src='/images/default.jpg', title='#{val.member.name}')

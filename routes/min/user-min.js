@@ -1,0 +1,1 @@
+exports.list=function(e,s){s.send("respond with a resource")};

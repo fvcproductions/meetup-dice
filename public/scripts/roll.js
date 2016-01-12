@@ -9,7 +9,7 @@ $(function rollDocReady(){
 
 	function setSelectedSpeed() {
 		var index = dice.get('speed') - 1;
-		
+
 		scope.trigger('selectSpeedEventHandler', [index]);
 	}
 

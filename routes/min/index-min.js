@@ -1,0 +1,1 @@
+exports.index=function(e,n){n.render("index",{title:"Express"})};

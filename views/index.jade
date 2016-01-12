@@ -1,15 +1,28 @@
 extends layout
 
+//- block content
+//-   .card-columns
+//-     each grp in res
+//-       .card
+//-         img.card-img-top.img-responsive(href="/#{grp.urlname}" src='#{grp.group_photo.photo_link}')
+//-         .card-block
+//-           h4.card-title
+//-             a.grpname.card-text(href="/#{grp.urlname}")=grp.name
+
 block content
-  - var i = -3;
-    while i <= res.length
-      - i += 3;
-      .row
-        each grp in res.slice(i, i+3)
-          .col-md-4.grp
-            a(href='/#{grp.urlname}')
-              .imgcont
-                - if (typeof(grp.group_photo) !== 'undefined'){
-                  img.grp(src='#{grp.group_photo.photo_link}')
-                -}
-                p.grpname=grp.name
+  .card-deck-wrapper
+    .card-deck
+    - var i = -3;
+      while i <= res.length
+        - i += 3;
+        .row
+          each grp in res.slice(i, i+3)
+            .col-md-4.card.grp
+              a(href='/#{grp.urlname}')
+                .imgcont
+                  - if (typeof(grp.group_photo) !== 'undefined'){
+                    img.grp.card-img-top(src='#{grp.group_photo.photo_link}')
+                  -}
+                  .cardblock
+                    br
+                    h4.card-title.grpname#header=grp.name
