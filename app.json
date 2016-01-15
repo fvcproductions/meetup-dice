@@ -1,0 +1,7 @@
+{
+  "name": "Meetup Dice",
+  "description": "Randomly get an RSVP'd member for a Meetup!",
+  "repository": "https://github.com/fvcproductions/meetup-dice",
+  "logo": "https://www.seeklogo.net/wp-content/uploads/2015/08/meetup-logo.png",
+  "keywords": ["node", "random","rsvp", "meetup", "raffle", "dice"]
+}
